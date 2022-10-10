@@ -1,0 +1,21 @@
+package exceptionHandling;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class H {
+	
+	public static void main(String[] args) {
+		
+		try {
+			FileWriter w = new FileWriter("E:\\testfile.txt");
+			BufferedWriter bw = new BufferedWriter(null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+}

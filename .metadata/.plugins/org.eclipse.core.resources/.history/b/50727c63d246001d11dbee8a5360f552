@@ -1,0 +1,12 @@
+package jdbcEx;
+
+public class A {
+
+	
+	public static void main(String[] args) {
+		
+		String url = "jdbc:mysql:localhost:\\qea22csdqe006";
+		String username = "root";
+		String password = "";
+	}
+}

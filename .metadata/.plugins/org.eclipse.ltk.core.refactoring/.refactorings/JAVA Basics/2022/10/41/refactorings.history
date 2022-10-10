@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy package &apos;jdbcEx&apos; to &apos;ManvenBasics/src/main/java&apos;&#x0D;&#x0A;- Original project: &apos;JAVA Basics&apos;&#x0D;&#x0A;- Destination element: &apos;ManvenBasics/src/main/java&apos;&#x0D;&#x0A;- Original element: &apos;JAVA Basics/src/jdbcEx&apos;" description="Copy package" destination="=ManvenBasics/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/" element1="/src&lt;jdbcEx" flags="589830" fragments="1" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1665213373433" version="1.0"/>
+</session>

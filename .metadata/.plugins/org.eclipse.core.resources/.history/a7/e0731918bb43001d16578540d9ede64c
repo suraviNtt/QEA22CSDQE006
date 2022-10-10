@@ -1,0 +1,22 @@
+package exceptionHandling;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
+public class D {
+	
+	public static void main(String[] args) {
+		
+		String s = "Hello Everyone";
+		byte[] data = s.getBytes();
+		
+		try {
+			FileOutputStream fo = new FileOutputStream("E:\\testing.txt");
+			fo.write(data);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}
