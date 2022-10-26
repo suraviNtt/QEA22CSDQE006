@@ -1,0 +1,72 @@
+<html>
+<head></head>
+<body>
+<script>
+function text(){
+var user = document.getElementById("u").value;
+var pass = document.getElementByName("pas").value;
+document.write( user + "  " + pass);
+}
+
+function verifyLength(){
+var user = document.getElementById("u").value;
+var pass = document.getElementById("p").value;
+if(user.lenght < 5){
+alert("User name lenght should be less than 5");
+}
+if(pass.lenght > 4){
+alert("Password lenght should be more than 5");
+}
+}
+function test(){
+var x = 90; 
+var y = 80;
+document.write(x+y);
+}
+
+test();
+document.write("		");
+var x; 
+var y;
+
+function test1(x ,y){
+document.write(x+y);
+}
+
+test1(10,29);
+
+function validate(){
+var user = document.getElementById("u").value;
+var pass = document.getElementById("p").value;
+if(user == null || user == ""){
+alert("Please enter user name");
+}
+if(pass == null || pass == ""){
+alert("Please enter password");
+}
+
+}
+
+</script>
+<h2>Lorem ipsum</h2>
+<h4>Lorem ipsum dolor sit amet, consectetur adipisci elit</h4>
+<br/>
+<b>Lorem ipsum</b> dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. 
+<br/>
+Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.
+<br/>
+ Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+<br/>
+Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<br/>
+<br/>
+
+User Name : <input type="text" id="u" placeholder="Enter user name" />  
+Password : <input type="password" name="pas" id="p" placeholder="Enter password" />
+
+<button onClick="text()">Submit</button>
+<button onMouseOver="verifyLength()">Submit on Mouser Over</button>
+<button onMouseOut="validate()">Submit on Mouse Out</button>
+<!-- <button onMouseIn="verifyLength()">Submit on Mouse In</button> -->
+</body>
+</html>

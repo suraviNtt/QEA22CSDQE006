@@ -1,0 +1,55 @@
+<html>
+<head></head>
+<body>
+<script>
+document.write("Hi");
+document.write("<br/>");
+document.write("Hello");
+document.write("<br/>");
+
+var x = 20 ;
+var y = 10;
+var c = x+y;
+var a = "Suravi";
+var b = true ;
+var d = -2.3;
+var arr = [123, "Suravi" , -2, 2.3 ]
+var obj= 
+{
+	"mobileid" : 123, 
+	"mname" : "Suravi", 
+	"mtype" : "Android", 
+	"m_in_stock":true
+}
+
+document.write(c);
+document.write("<br/>");
+document.write(a);
+document.write("<br/>");
+document.write(b);
+document.write("<br/>");
+document.write(d);
+document.write("<br/>");
+for(var x = 0 ; x< arr.length ; x++){
+document.write(arr[x] + " ");
+}
+document.write("<br/>");
+for(x in arr){
+document.write(arr[x] + "	");
+}
+document.write("<br/>");
+document.write(obj.mobileid);
+document.write("<br/>");
+document.write(obj.mname);
+document.write("<br/>");
+document.write(obj.mtype);
+document.write("<br/>");
+document.write(obj.m_in_stock);
+document.write("<br/>");
+document.write(obj["mtype"]);
+document.write("<br/>");
+
+
+</script>
+</body>
+</html>
