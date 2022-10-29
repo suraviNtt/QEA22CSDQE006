@@ -1,11 +1,15 @@
 package testcases;
 
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import browserSetup.BrowserSetup;
 import reader.PropertiesReader;
 import utitils.CommonMethods;
@@ -26,7 +30,7 @@ public class TestExecutorAmazonSearchDropdown {
 		
 		BrowserSetup browserSetup = new BrowserSetup();
 		CommonMethods commonMethods = new CommonMethods();
-		WebDriver driver = browserSetup.getDriver(browsername);
+		WebDriver driver = BrowserSetup.getDriver(browsername , 5);
 		driver.get(url);
 		
 		List<WebElement> activeLinks =	driver.findElements(By.xpath(listOfActiveLinks));
@@ -54,8 +58,15 @@ public class TestExecutorAmazonSearchDropdown {
 		System.out.println("Search Result Haeding : "+ heading);
 		}
 
-		Thread.sleep(pr.getHardWait());
+	//	Thread.sleep(pr.getHardWait());
+		
+		
 		WebElement firstSearchResult = driver.findElement(By.xpath(firstSearchResultXpath));
+		//Explicit Wait
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+		wait.until(ExpectedConditions.elementToBeClickable(firstSearchResult));
+		
+		
 		
 	System.out.println(firstSearchResult.getAttribute("data-ved"));
 		commonMethods.clickOnWebElement(firstSearchResult);
@@ -74,7 +85,7 @@ public class TestExecutorAmazonSearchDropdown {
 		}
 		
 	//	assertEquals(seleniumPageExpectedTitle, seleniumPageActualTitle);
-		Thread.sleep(2500);
+//		Thread.sleep(2500);
 		driver.close();
 	}
 

@@ -26,7 +26,7 @@ public class TestExecutorWithResuableMethods {
 		
 		BrowserSetup browserSetup = new BrowserSetup();
 		CommonMethods commonMethods = new CommonMethods();
-		WebDriver driver = browserSetup.getDriver(browsername);
+		WebDriver driver = BrowserSetup.getDriver(browsername, 10);
 		driver.get(url);
 		
 		List<WebElement> activeLinks =	driver.findElements(By.xpath(listOfActiveLinks));

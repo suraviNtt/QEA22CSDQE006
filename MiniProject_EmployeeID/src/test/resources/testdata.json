@@ -1,3 +1,5 @@
 {
-	"searchtext" : "mobile smartphones under 30000"
+	"searchtext" : "mobile smartphones under 30000",
+	"expectedprice" : 2000,
+	"enter_age" : 18
 }
