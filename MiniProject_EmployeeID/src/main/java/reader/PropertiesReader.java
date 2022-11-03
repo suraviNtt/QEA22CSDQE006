@@ -3,6 +3,8 @@ package reader;
 import java.io.FileReader;
 import java.util.Properties;
 
+import utitils.PathReader;
+
 /**
  * 
  * @author User
@@ -13,10 +15,9 @@ public class PropertiesReader {
 	Properties properties = null;
 
 	public PropertiesReader() {
-		String currentProjectLocation = System.getProperty("user.dir");
-		String insideProjectFileLocation = "/src/main/resources/configuration.properties";
-
-		String configgurationPageLocation = currentProjectLocation + insideProjectFileLocation;
+		
+PathReader pr = new PathReader();
+		String configgurationPageLocation = pr.getConfigPropPath();
 		FileReader fr = null;
 		properties = new Properties();
 		try {

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="c"/>
+		<item key="selection" value="alertHandler"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="true"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="cm"/>
 			<item value="b"/>
 			<item value="B"/>
 			<item value="linkedHashMap"/>
 			<item value="hashMap"/>
 		</list>
 		<list key="replacehistory">
+			<item value="alertHandler"/>
 			<item value="c"/>
 			<item value="C"/>
 			<item value="treeMap"/>

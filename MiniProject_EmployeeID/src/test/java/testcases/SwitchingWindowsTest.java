@@ -1,21 +1,38 @@
 package testcases;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
+import javax.imageio.ImageIO;
+
+import org.apache.commons.io.output.ByteArrayOutputStream;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.HasFullPageScreenshot;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import browserSetup.BrowserSetup;
 import reader.PropertiesReader;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 import utitils.CommonMethods;
 
 public class SwitchingWindowsTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 
 		PropertiesReader propertiesReader = new PropertiesReader();
 		CommonMethods commonMethods = new CommonMethods();
@@ -27,7 +44,8 @@ public class SwitchingWindowsTest {
 
 		WebDriver driver = BrowserSetup.getDriver(propertiesReader.getBrowserName(),
 				propertiesReader.getImplicitWait());
-		wait = new WebDriverWait(driver, Duration.ofSeconds(propertiesReader.getExplicitWait()));
+		wait = (WebDriverWait) new WebDriverWait(driver, Duration.ofSeconds(propertiesReader.getExplicitWait()))
+				.pollingEvery(Duration.ofMillis(100)).ignoring(NoSuchElementException.class);
 
 		commonMethods.launchApplication(driver, url);
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(firstSearchResultXpath)));
@@ -43,11 +61,21 @@ public class SwitchingWindowsTest {
 		}
 
 		WebElement productTitle = driver.findElement(By.id("productTitle"));
-		System.out.println("Product titel : " + productTitle.getText());
+		System.out.println("Product title : " + productTitle.getText());
 
 		commonMethods.closeCurrentBrowserWindow(driver);
 		driver.switchTo().window(parentPage);
 		System.out.println("Parent window title : " + driver.getTitle());
+
+		//full page screenshot
+		Screenshot scrsht = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(2000))
+				.takeScreenshot(driver);
+		BufferedImage bi = scrsht.getImage();
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		ImageIO.write(bi, "png", baos);
+		baos.flush();
+		byte[] imageBytes = baos.toByteArray();
+		Files.write(Paths.get("E://testingimag.png"), imageBytes);
 
 		commonMethods.closeCurrentBrowserWindow(driver);
 

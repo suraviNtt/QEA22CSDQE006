@@ -24,7 +24,7 @@ public class AlertHandler {
 	 */
 	public void dismissAlert(WebDriver driver) {
 		try {
-			driver.switchTo().alert().accept();
+			driver.switchTo().alert().dismiss();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
